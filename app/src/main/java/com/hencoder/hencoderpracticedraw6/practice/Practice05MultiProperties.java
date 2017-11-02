@@ -1,5 +1,7 @@
 package com.hencoder.hencoderpracticedraw6.practice;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
@@ -10,24 +12,29 @@ import android.widget.ImageView;
 
 import com.hencoder.hencoderpracticedraw6.R;
 
-public class Practice05MultiProperties extends ConstraintLayout {
+public class Practice05MultiProperties extends ConstraintLayout
+{
     Button animateBt;
     ImageView imageView;
 
-    public Practice05MultiProperties(Context context) {
+    public Practice05MultiProperties(Context context)
+    {
         super(context);
     }
 
-    public Practice05MultiProperties(Context context, @Nullable AttributeSet attrs) {
+    public Practice05MultiProperties(Context context, @Nullable AttributeSet attrs)
+    {
         super(context, attrs);
     }
 
-    public Practice05MultiProperties(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public Practice05MultiProperties(Context context, @Nullable AttributeSet attrs, int defStyleAttr)
+    {
         super(context, attrs, defStyleAttr);
     }
 
     @Override
-    protected void onAttachedToWindow() {
+    protected void onAttachedToWindow()
+    {
         super.onAttachedToWindow();
 
         animateBt = (Button) findViewById(R.id.animateBt);
@@ -35,10 +42,20 @@ public class Practice05MultiProperties extends ConstraintLayout {
         imageView.setScaleX(0);
         imageView.setScaleY(0);
         imageView.setAlpha(0f);
-        animateBt.setOnClickListener(new OnClickListener() {
+        animateBt.setOnClickListener(new OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 // TODO 在这里处理点击事件，同时对多个属性做动画
+                imageView.animate()
+                        .scaleX(1)
+                        .scaleY(1)
+                        .alpha(1)
+                        .rotation(360*3)
+                        .translationX(500);
+
+
             }
         });
     }
